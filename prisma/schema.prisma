@@ -15,17 +15,10 @@ model User {
   id        Int     @id @default(autoincrement())
   email     String  @unique
   password  String
+  name      String
+  mobile    Int
   orders    Order[]
   cartItems Cart[]
-}
-
-model Product {
-  id         Int         @id @default(autoincrement())
-  name       String
-  price      Float
-  quantity   Int
-  orderItems OrderItem[]
-  cartItems  Cart[]
 }
 
 model Order {
@@ -43,6 +36,15 @@ model OrderItem {
   productId Int
   product   Product @relation(fields: [productId], references: [id])
   quantity  Int
+}
+
+model Product {
+  id         Int         @id @default(autoincrement())
+  name       String
+  price      Float
+  quantity   Int
+  orderItems OrderItem[]
+  cartItems  Cart[]
 }
 
 model Cart {
