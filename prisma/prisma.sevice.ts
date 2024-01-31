@@ -11,10 +11,10 @@ export class PrismaService
     console.info('Prisma service initialised.');
   }
   async onModuleInit() {
-    await this.$connect();
+    await (this as any).$connect();
   }
 
   async onModuleDestroy() {
-    await this.$disconnect();
+    await (this as any).$disconnect();
   }
 }
